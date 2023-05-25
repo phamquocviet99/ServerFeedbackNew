@@ -2,7 +2,12 @@ import feedBackModel from "../models/FeedbackModel.js";
 
 export const post = async (req, res) => {
   try {
-    if (!req.body.nameVendor || !req.body.description || !req.body.email) {
+    if (
+      !req.body.idVendor ||
+      !req.body.nameVendor ||
+      !req.body.description ||
+      !req.body.email
+    ) {
       res.status(200).send({
         success: false,
         code: -1,
@@ -12,6 +17,7 @@ export const post = async (req, res) => {
     }
     const feedBack = new feedBackModel({
       nameVendor: req.body.nameVendor,
+      idVendor: req.body.idVendor,
       type: req.body.type,
       description: req.body.description,
       email: req.body.email,
