@@ -4,6 +4,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import FeedbackRouter from "./routers/FeedbackRouter.js";
+import path from "path";
+const __dirname = path.resolve()
 dotenv.config();
 
 //Setup Port
@@ -25,7 +27,7 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);
 });
-app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "public") });
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./index.html"));
 });
 // module.exports = app;
