@@ -16,6 +16,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" })); // limit from front-end data 30MB
 app.use(cors());
 app.use("/feedback", FeedbackRouter);
+app.use(express.static("public"));
 mongoose
   .connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((err) => {
@@ -24,3 +25,7 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Our app is running on port ${PORT}`);
 });
+app.get("/", (req, res) => {
+  res.sendFile("index.html", { root: path.join(__dirname, "public") });
+});
+// module.exports = app;
