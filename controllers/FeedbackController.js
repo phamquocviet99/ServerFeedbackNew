@@ -5,8 +5,7 @@ export const post = async (req, res) => {
     if (
       !req.body.idVendor ||
       !req.body.nameUser ||
-      !req.body.description ||
-      !req.body.email
+      !req.body.description
     ) {
       res.status(200).send({
         success: false,
