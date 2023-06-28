@@ -4,7 +4,7 @@ export const post = async (req, res) => {
   try {
     if (
       !req.body.idVendor ||
-      !req.body.nameVendor ||
+      !req.body.nameUser ||
       !req.body.description ||
       !req.body.email
     ) {
@@ -16,7 +16,7 @@ export const post = async (req, res) => {
       return;
     }
     const feedBack = new feedBackModel({
-      nameVendor: req.body.nameVendor,
+      nameUser: req.body.nameUser,
       idVendor: req.body.idVendor,
       type: req.body.type,
       description: req.body.description,

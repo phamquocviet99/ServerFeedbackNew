@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const schema = new mongoose.Schema(
   {
-    nameVendor: {
+    nameUser: {
       type: String,
       required: true,
     },

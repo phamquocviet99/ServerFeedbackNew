@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 const URI = "mongodb+srv://vietphamquoc1211999:vietphamquoc1211999@cluster0.c7fwdje.mongodb.net/?retryWrites=true&w=majority";
 app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" })); // limit from front-end data 30MB
+
 app.use(cors());
 app.use("/feedback", FeedbackRouter);
 app.use(express.static("public"));
