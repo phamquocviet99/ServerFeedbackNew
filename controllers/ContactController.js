@@ -60,6 +60,13 @@ export const post = async (req, res) => {
         });
       }
     }
+    if (req.body.fullName.match(/[-!@#$%^&*(),.?":{}|<>]/)) {
+      return res.status(400).send({
+        success: false,
+        code: -1,
+        message: "Tên người không hợp lệ !",
+      });
+    } 
     const contact = new contactModel({
       fullName: req.body.fullName,
       message: req.body.message,
